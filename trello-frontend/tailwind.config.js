@@ -13,6 +13,10 @@ module.exports = {
         headingCol: '#FFFEF2',
         contentCol: '#C0C0C0',
         outerBoxCol: '#A76F6F33'
+      },
+      blur: {
+        deco: '150px',
+        bg: '600px'
       }
   },
   plugins: [],
