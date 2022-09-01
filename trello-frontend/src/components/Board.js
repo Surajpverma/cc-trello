@@ -8,29 +8,34 @@ function Board(props) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col gap-[20px] border-2 border-contentCol ">
-      <div className="">
-        <p className="">
+    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col gap-[20px] border-2 border-contentCol">
+      <div className="flex justify-between items-center">
+        <p className="font-bold text-base flex gap-[5px] items-center">
           {props.board?.title}
-          <span>{props.board?.cards?.length || 0}</span>
+          <span className="text-[rgb(145, 145, 145)]">{props.board?.cards?.length || 0}</span>
         </p>
         <div
-          className=""
+          className="cursor-pointer relative"
           onClick={() => setShowDropdown(true)}
         >
           <MoreHorizontal />
           {showDropdown && (
             <Dropdown
-              class=""
+              className="shadow-[1px_0px_20px_rgba(0, 0, 0, 0.12)] p-20 w-[150px] cursor-default"
               onClose={() => setShowDropdown(false)}
             >
-              <p onClick={() => props.removeBoard()}>Delete Board</p>
+              <p 
+                className="cursor-pointer"
+                onClick={() => props.removeBoard()}
+              >
+                Delete Board
+              </p>
             </Dropdown>
           )}
         </div>
       </div>
       
-      <div className="">
+      <div className="bg-[#f8f8f8] p-10 rounded-md flex flex-col gap-[10px] overflow-y-auto">
         {props.board?.cards?.map((item) => (
           <Card
             key={item.id}
@@ -43,6 +48,7 @@ function Board(props) {
           />
         ))}
         <Editable
+          className="bg-[#fff] rounded-xl p-10"
           text="+ Add Card"
           placeholder="Enter Card Title"
           displayClass=""
