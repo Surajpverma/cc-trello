@@ -6,7 +6,7 @@ import Workspace from './components/Workspace';
 
 function App() {
   return (
-  <div className="bg-prmBg">
+  <div className="bg-transparent flex justify-center">
    <div className="App">
     <BrowserRouter>
       <Routes>
