@@ -45,22 +45,22 @@ function Card(props) {
         />
       )}
       <div
-        className=""
+        className="p-10 flex flex-col gap-[10px] bg-[#fff] rounded-xl hover:opacity-100"
         draggable
         onDragEnd={() => props.dragEnded(props.boardId, id)}
         onDragEnter={() => props.dragEntered(props.boardId, id)}
         onClick={() => setShowModal(true)}
       >
-        <div className="">
-          <div className="">
+        <div className="flex items-start">
+          <div className="flex-[3] flex flex-wrap gap-[5px] text-sm leading-5">
             {labels?.map((item, index) => (
-              <label key={index} style={{ backgroundColor: item.color }}>
+              <label className="rounded-[40px] p-[4px 12px] bg-[rgb(128, 128, 128)] text-[#fff]" key={index} style={{ backgroundColor: item.color }}>
                 {item.text}
               </label>
             ))}
           </div>
           <div
-            className=""
+            className="w-[30px] h-[20px] flex-1 translate-y-[15px] cursor-pointer opacity-100 duration-200"
             onClick={(event) => {
               event.stopPropagation();
               setShowDropdown(true);
@@ -79,10 +79,10 @@ function Card(props) {
             )}
           </div>
         </div>
-        <div className="">{title}</div>
-        <div className="">
+        <div className="flex-1 font-bold text-xl ">{title}</div>
+        <div className="flex justify-between items-center">
           {date && (
-            <p className="">
+            <p className="rounded-[40px] p-[4px 12px] bg-[#f8f8f8] text-[#000] w-fit text-sm flex gap-[5px] items-center">
               <Clock className="" />
               {formatDate(date)}
             </p>
