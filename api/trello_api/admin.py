@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import List, Item
+from .models import List, Item,Board
 
-admin.register(Item)
-admin.register(List)
+admin.site.register(Item)
+admin.site.register(List)
+admin.site.register(Board)
