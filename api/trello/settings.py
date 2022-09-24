@@ -48,11 +48,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'trello_api'
 ]
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
-    )
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+#     )
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
