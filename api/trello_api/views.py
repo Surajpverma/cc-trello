@@ -64,7 +64,6 @@ class BoardListView(APIView):
         boards=Board.objects.filter(user=request.user.id)
         response = []
         print(boards)
-        print(request.user.name)
         for res in boards:
             response.append({
                 "id":res.id,
