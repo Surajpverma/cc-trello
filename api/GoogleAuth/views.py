@@ -7,6 +7,7 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 from rest_framework.response import Response
 import requests 
+from rest_framework.authtoken.models import Token
 
 # class GoogleLogin(SocialLoginView): # if you want to use Authorization Code Grant, use this
 #     adapter_class = GoogleOAuth2Adapter
