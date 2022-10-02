@@ -105,13 +105,13 @@ function CardInfo(props) {
 
   return (
     <Modal onClose={props.onClose}>
-      <div className="">
-        <div className="">
-          <div className="">
+      <div className=" p-3 flex flex-col gap-[10px] min-w-min h-fit">
+        <div className=" w-full flex flex-col gap-[5px]">
+          <div className="flex gap-[5px] content-center">
             <Type />
-            <p>Title</p>
+            <p className=" text-contentCol">Title</p>
           </div>
-          <Editable
+          <Editable 
             defaultValue={values.title}
             text={values.title}
             placeholder="Enter Title"
@@ -119,10 +119,10 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="">
-          <div className="cardinfo_box_title">
+        <div className="w-full flex flex-col gap-[5px]">
+          <div className="flex gap-[5px] content-center">
             <List />
-            <p>Description</p>
+            <p className=" text-contentCol">Description</p>
           </div>
           <Editable
             defaultValue={values.desc}
@@ -132,10 +132,10 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="">
-          <div className="">
+        <div className="w-full flex flex-col gap-[5px]">
+          <div className="flex gap-[5px] content-center">
             <Calendar />
-            <p>Date</p>
+            <p className=" text-contentCol">Date</p>
           </div>
           <input
             type="date"
@@ -145,25 +145,25 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="">
-          <div className="">
+        <div className="w-full flex flex-col gap-[5px]">
+          <div className="flex gap-[5px] content-center">
             <Tag />
-            <p>Labels</p>
+            <p className=" text-contentCol">Labels</p>
           </div>
-          <div className="">
+          <div className="flex gap-[5px] flex-wrap">
             {values.labels?.map((item, index) => (
-              <label
+              <label className=" rounded-[3px] bg-[rgba(45,36,36,0.5)] text-contentCol px-1 py-1 flex content-center gap-1"
                 key={index}
-                style={{ backgroundColor: item.color, color: "#fff" }}
+                // style={{ backgroundColor: item.color, color: "#fff" }}
               >
                 {item.text}
                 <X onClick={() => removeLabel(item)} />
               </label>
             ))}
           </div>
-          <ul>
+          <ul className="flex gap-[5px] left-3">
             {colors.map((item, index) => (
-              <li
+              <li id="myLi"
                 key={index + item}
                 style={{ backgroundColor: item }}
                 className={selectedColor === item ? "li_active" : ""}
@@ -180,17 +180,17 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="">
-          <div className="">
+        <div className="w-full flex flex-col gap-[5px]">
+          <div className="flex gap-[5px] content-center">
             <CheckSquare />
             <p>Tasks</p>
           </div>
-          <div className="">
+          <div className=" w-full rounded-[5px] h-[10px] border-contentCol ">
             <div
-              className=""
+              id="prog"
               style={{
                 width: `${calculatePercent()}%`,
-                backgroundColor: calculatePercent() === 100 ? "limegreen" : "",
+                backgroundColor: calculatePercent() === 100 ? "skyblue" : "",
               }}
             />
           </div>
