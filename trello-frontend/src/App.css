@@ -1,3 +1,22 @@
   ::-webkit-scrollbar{
     display: none;
   }
+
+  #myLi{
+    list-style: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+  #myLi:active{
+    box-shadow: 0 0 0 3px yellow;
+  }
+
+  #prog{
+    height: 100%;
+  border-radius: 30px;
+  background-color: skyblue;
+  width: 0;
+  transition: 200ms;
+  }

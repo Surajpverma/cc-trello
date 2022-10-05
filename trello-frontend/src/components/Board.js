@@ -8,11 +8,11 @@ function Board(props) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col gap-[20px] border-2 border-contentCol">
+    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col gap-[15px] border-2 border-contentCol">
       <div className="flex justify-between items-center">
         <p className="font-bold text-base flex gap-[5px] items-center">
           {props.board?.title}
-          <span className="text-[rgb(145, 145, 145)]">{props.board?.cards?.length || 0}</span>
+          <span className=" text-headingCol">{props.board?.cards?.length || 0}</span>
         </p>
         <div
           className="cursor-pointer relative"
@@ -21,7 +21,7 @@ function Board(props) {
           <MoreHorizontal />
           {showDropdown && (
             <Dropdown
-              className="shadow-[1px_0px_20px_rgba(0, 0, 0, 0.12)] p-20 w-[150px] cursor-default"
+              className=" p-10 w-[150px] cursor-default"
               onClose={() => setShowDropdown(false)}
             >
               <p 
@@ -35,7 +35,7 @@ function Board(props) {
         </div>
       </div>
       
-      <div className="bg-[#f8f8f8] p-10 rounded-md flex flex-col gap-[10px] overflow-y-auto">
+      <div className=" bg-outerBoxCol p-[10px] rounded-[8px] flex flex-col gap-[10px] overflow-y-auto">
         {props.board?.cards?.map((item) => (
           <Card
             key={item.id}
