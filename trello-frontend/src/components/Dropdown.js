@@ -23,7 +23,7 @@ function Dropdown(props) {
   return (
     <div
       ref={dropdownRef}
-      className={`dropdown custom-scroll ${props.class ? props.class : ""}`}
+      className={`scroll absolute top-full bg-transparen mt-1 rounded-[3px] min-h-[30px] min-w-[65px] w-fit h-fit max-w-[250px] max-h-[390px] overflow-y-hidden z-10 custom-scroll ${props.class ? props.class : ""}`}
     >
       {props.children}
     </div>

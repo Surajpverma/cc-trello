@@ -20,3 +20,7 @@
   width: 0;
   transition: 200ms;
   }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 12px !important;
+  }

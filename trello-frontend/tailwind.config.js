@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        prmRed: '#CF2027',
+        prmRed: '#a8193d',
         prmBlue: '#5CCAE8',
         prmYellow: '#FFE275',
         prmBg: '#434343',

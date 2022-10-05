@@ -7,9 +7,8 @@ import Editable from "./Editable.js";
 function CardInfo(props) {
   const colors = [
     "#a8193d",
-    "#4fcc25",
-    "#1ebffa",
-    "#8da377",
+    "#1D3557",
+    "#076606",
     "#9975bd",
     "#cf61a1",
     "#240959",
@@ -106,7 +105,7 @@ function CardInfo(props) {
   return (
     <Modal onClose={props.onClose}>
       <div className=" p-3 flex flex-col gap-[10px] min-w-min h-fit">
-        <div className=" w-full flex flex-col gap-[5px]">
+        <div className=" w-full flex flex-col gap-[5px] text-contentCol">
           <div className="flex gap-[5px] content-center">
             <Type />
             <p className=" text-contentCol">Title</p>
@@ -119,7 +118,7 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="w-full flex flex-col gap-[5px]">
+        <div className="w-full flex flex-col gap-[5px] text-contentCol">
           <div className="flex gap-[5px] content-center">
             <List />
             <p className=" text-contentCol">Description</p>
@@ -132,12 +131,13 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="w-full flex flex-col gap-[5px]">
+        <div className="w-full flex flex-col gap-[5px] text-contentCol">
           <div className="flex gap-[5px] content-center">
             <Calendar />
             <p className=" text-contentCol">Date</p>
           </div>
           <input
+            className=" w-fit border-contentCol bg-transparent rounded-[3px] outline-none p-1"
             type="date"
             defaultValue={values.date}
             min={new Date().toISOString().substr(0, 10)}
@@ -145,12 +145,12 @@ function CardInfo(props) {
           />
         </div>
 
-        <div className="w-full flex flex-col gap-[5px]">
+        <div className="w-full flex flex-col gap-[5px] text-contentCol">
           <div className="flex gap-[5px] content-center">
             <Tag />
             <p className=" text-contentCol">Labels</p>
           </div>
-          <div className="flex gap-[5px] flex-wrap">
+          <div className="flex gap-[5px] flex-wrap text-contentCol">
             {values.labels?.map((item, index) => (
               <label className=" rounded-[3px] bg-[rgba(45,36,36,0.5)] text-contentCol px-1 py-1 flex content-center gap-1"
                 key={index}
@@ -161,7 +161,7 @@ function CardInfo(props) {
               </label>
             ))}
           </div>
-          <ul className="flex gap-[5px] left-3">
+          <ul className="flex gap-[5px] left-3 text-contentCol">
             {colors.map((item, index) => (
               <li id="myLi"
                 key={index + item}
@@ -169,7 +169,7 @@ function CardInfo(props) {
                 className={selectedColor === item ? "li_active" : ""}
                 onClick={() => setSelectedColor(item)}
               />
-            ))}
+            ))} 
           </ul>
           <Editable
             text="Add Label"
@@ -181,11 +181,11 @@ function CardInfo(props) {
         </div>
 
         <div className="w-full flex flex-col gap-[5px]">
-          <div className="flex gap-[5px] content-center">
+          <div className="flex gap-[5px] content-center text-contentCol">
             <CheckSquare />
             <p>Tasks</p>
           </div>
-          <div className=" w-full rounded-[5px] h-[10px] border-contentCol ">
+          <div className=" w-full rounded-[5px] h-[10px] ">
             <div
               id="prog"
               style={{
@@ -194,22 +194,24 @@ function CardInfo(props) {
               }}
             />
           </div>
-          <div className="">
+          <div className="flex flex-col gap-[5px] text-contentCol">
             {values.tasks?.map((item) => (
-              <div key={item.id} className="">
-                <input
+              <div key={item.id} className="flex gap-[5px]">
+                <input 
+                  className="h-[10px] w-[10px] outline-none cursor-pointer"
                   type="checkbox"
                   defaultChecked={item.completed}
                   onChange={(event) =>
                     updateTask(item.id, event.target.checked)
                   }
                 />
-                <p className={item.completed ? "completed" : ""}>{item.text}</p>
+                <p className={item.completed ? "flex-1 leading-[10px] line-through" : " flex-1 leading-[10px]"}>{item.text}</p>
                 <Trash onClick={() => removeTask(item.id)} />
               </div>
             ))}
           </div>
           <Editable
+            className="text-contentCol"
             text={"Add a Task"}
             placeholder="Enter task"
             onSubmit={addTask}
