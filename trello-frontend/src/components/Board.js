@@ -8,24 +8,24 @@ function Board(props) {
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
-    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col gap-[15px] border-2 border-contentCol">
+    <div className="min-w-[290px] w-[290px] max-h-full basis-[290px] flex flex-col flex-[3] gap-[15px] m-5">
       <div className="flex justify-between items-center">
-        <p className="font-bold text-base flex gap-[5px] items-center">
+        <p className="font-bold text-base flex gap-[5px] items-center text-headingCol">
           {props.board?.title}
-          <span className=" text-headingCol">{props.board?.cards?.length || 0}</span>
+          <span className=" text-contentCol">{props.board?.cards?.length || 0}</span>
         </p>
         <div
-          className="cursor-pointer relative"
+          className="cursor-pointer relative text-headingCol"
           onClick={() => setShowDropdown(true)}
         >
           <MoreHorizontal />
           {showDropdown && (
             <Dropdown
-              className=" p-10 w-[150px] cursor-default"
+              className=" p-10 w-[150px] cursor-default text-contentCol"
               onClose={() => setShowDropdown(false)}
             >
               <p 
-                className="cursor-pointer"
+                className="cursor-pointer text-headingCol"
                 onClick={() => props.removeBoard()}
               >
                 Delete Board

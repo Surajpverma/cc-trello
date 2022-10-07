@@ -45,22 +45,22 @@ function Card(props) {
         />
       )}
       <div
-        className="p-3 flex flex-col gap-[5px] bg-[rgba(45,36,36,0.5)] rounded-[5px] hover:opacity-100"
+        className="p-3 flex flex-col gap-[5px] bg-[rgba(45,36,36,0.5)] rounded-[5px] opacity-100 text-contentCol"
         draggable
         onDragEnd={() => props.dragEnded(props.boardId, id)}
         onDragEnter={() => props.dragEntered(props.boardId, id)}
         onClick={() => setShowModal(true)}
       >
-        <div className="flex items-start">
-          <div className=" flex-auto flex flex-wrap gap-[5px] text-sm leading-5">
+        <div className="flex items-start text-contentCol">
+          <div className=" flex-[3] flex flex-wrap gap-[5px] text-sm leading-5">
             {labels?.map((item, index) => (
-              <label className="rounded-[3px] px-1 py-1 bg-[rgba(105,89,89,0.3)] text-contentCol" key={index} style={{ backgroundColor: item.color }}>
+              <label className=" rounded-[3px] px-1 py-1 bg-[rgba(105,89,89,0.3)] text-contentCol" key={index} style={{ backgroundColor: item.color }}>
                 {item.text}
               </label>
             ))}
           </div>
           <div
-            className="w-[30px] h-[20px] flex-1 translate-x-[15px] cursor-pointer opacity-0 duration-200 hover:opacity-100"
+            className="w-[30px] h-[15px] flex-1 translate-x-[15px] cursor-pointer opacity-10 duration-200 hover:opacity-100"
             onClick={(event) => {
               event.stopPropagation();
               setShowDropdown(true);
@@ -73,14 +73,14 @@ function Card(props) {
                 onClose={() => setShowDropdown(false)}
               >
                 <p onClick={() => props.removeCard(props.boardId, id)}>
-                  Delete Card
+                  Delete
                 </p>
               </Dropdown>
             )}
           </div>
         </div>
         <div className="flex-1 font-bold text-xl leading-7 text-headingCol">{title}</div>
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center text-contentCol">
           {date && (
             <p className="rounded-[3px] px-1 py-1 bg-[rgba(105,89,89,0.3)] text-contentCol text-[12px] leading-5 flex gap-1 items-center">
               <Clock className="h-3 w-3" />

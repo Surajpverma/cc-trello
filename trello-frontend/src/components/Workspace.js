@@ -119,13 +119,15 @@ const Workspace = () => {
   }, [boards]);
 
 return (
-  <div className="">
-      <Navbar />
+  <div >
+      <Navbar/>
+      <div className="w-full h-screen flex flex-col">
+      <div>
         <span className="absolute inline blur-deco rounded bg-contentCol opacity-80 -z-10 top-3/4 left-0 p-24 "></span>
         <span className="absolute inline blur-deco rounded bg-prmRed opacity-40 -z-10 -top-40 left-1/2 p-52"></span>
         <span className="absolute inline blur-deco rounded bg-prmRed opacity-50 -z-10 bottom-0 right-0 p-24"></span>
-      <div className="">
-        <div className="">
+      <div className="flex-1 w-full h-full overflow-x-auto pt-5">
+        <div className="h-[85vh] w-[100vw] px-2 py-7 flex gap-7">
           {boards.map((item) => (
             <Board
               key={item.id}
@@ -138,10 +140,10 @@ return (
               updateCard={updateCard}
             />
           ))}
-          <div className="">
+          <div className=" basis-72 min-w-[288px]">
             <Editable
-              displayClass=""
-              editClass=""
+              displayClass="add_board"
+              editClass="board_edit"
               placeholder="Enter Board Name"
               text="Add Board"
               buttonText="Add Board"
@@ -150,7 +152,9 @@ return (
           </div>
         </div>
       </div>
+      </div>
     </div>
+  </div>
   );
 
 }
