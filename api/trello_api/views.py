@@ -3,6 +3,8 @@ from .models import *
 from rest_framework import status
 from rest_framework.views import APIView, Response
 import json
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 class BoardView(APIView):
     def get(self, request):
@@ -73,11 +75,12 @@ class BoardListView(APIView):
     
     def post(self, request):
         board_name=request.data['name']
-        exists = Board.objects.filter(name=board_name)    
+        exists = Board.objects.filter(name=board_name)   
         if exists :
             return Response({"msg":"Board already exists"}, status = status.HTTP_403_FORBIDDEN)
 
         else:
-            Board.objects.create(name=board_name, user=request.user)
-            return Response(status = status.HTTP_201_CREATED)
+            
+            Board.objects.create(name=board_name,user=request.user)
+            return Response({"msg":"Board created"},status = status.HTTP_201_CREATED)
         

@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-28u10556g%_d7yoye*a^tnh8n)&&!0p2j$wc6%(%obs1k5sx9v
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cctrelloapp.herokuapp.com']
+ALLOWED_HOSTS = ['cctrelloapp.herokuapp.com','127.0.0.1']
 
 # Application definition
 
@@ -53,6 +53,12 @@ INSTALLED_APPS = [
 #         'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
 #     )
 # }
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
